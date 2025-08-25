@@ -1,0 +1,53 @@
+require([
+    'jquery',
+    'underscore',
+    'domReady!'
+], function ($, _) {
+    'use strict';
+
+    $(document).on("click", function (e) {
+        var container = $('#popup-storepickup');
+        var action_pickup = $(".block-ubicacion > a > h3 > span");
+
+        if (action_pickup[0] !== e.target) {
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                if (container.is(':visible')) {
+                    container.toggle();
+                    blackScreen();
+                }
+            }
+        }
+    });
+
+
+    $(".block-ubicacion").on('click', function () {
+        $("#popup-storepickup").toggle();
+        blackScreen();
+    });
+
+    $('#popup-storepickup').on('click', '.btn-store-selector', function () {
+        showStoreName();
+    });
+
+    var searchStoreName = setInterval(function () {
+        if (!_.isUndefined($('#input_store_name').val())) {
+            clearInterval(searchStoreName);
+            showStoreName();
+        }
+    }, 1000);
+
+    function showStoreName() {
+        var target_block = $('.block-ubicacion > p');
+        var store_name = $('#input_store_name').val();
+
+        target_block.html(store_name);
+    };
+
+    function blackScreen() {
+        if ($('body').hasClass('open-login')) {
+            $('body').removeClass('open-login');
+        } else {
+            $('body').addClass('open-login');
+        }
+    }
+});

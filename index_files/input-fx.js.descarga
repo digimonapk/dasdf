@@ -1,0 +1,16 @@
+define([
+    'jquery',
+    'Magento_Theme/js/placeholder',
+    'domReady!',
+], function(
+    $,
+    placeholder
+) {
+    'use strict';
+
+    placeholder();
+
+    $('.header.links').hover(function() {
+        placeholder();
+    });
+});
