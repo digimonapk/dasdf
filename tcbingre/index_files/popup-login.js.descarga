@@ -1,0 +1,201 @@
+define([
+    'uiComponent',
+    'jquery',
+    'underscore',
+    'mage/url',
+    'Magento_Customer/js/action/login',
+    'Magento_Ui/js/model/messageList',
+    'Magento_Customer/js/customer-data',
+    'domReady!'
+], function (Component, $, _, url, loginAction, messageList, customerData) {
+    "use strict";
+
+    var blackScreen = function () {
+        if ($('.popup-login-overlay').hasClass('login-overlay')) {
+            $('.popup-login-overlay').removeClass('login-overlay');
+        } else {
+            $('.popup-login-overlay').addClass('login-overlay');
+        }
+    }
+
+    var openPopUp = function () {
+        var data_mobile = window.matchMedia('(max-width: 768px)').matches;
+        var data_post = _.isUndefined($(this).attr('data-post'));
+
+        if ((data_mobile == false) && (data_post == true)) {
+            $("#popup_login").toggle();
+        }
+
+        if ((data_mobile == true) && (data_post == true)) {
+            window.location.href = checkout.customerLoginUrl;
+        }
+        blackScreen();
+    }
+
+    $("#cat-active-name").click(function (e) {
+        var container = $('#popup_login');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if (container.is(':visible')) {
+                container.toggle();
+                blackScreen();
+            }
+        }
+    });
+    $(".showcart").click(function (e) {
+        var container = $('#popup_login');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if (container.is(':visible')) {
+                container.toggle();
+                blackScreen();
+            }
+        }
+    });
+    $(".page-header").on("click", function (e) {
+        var container = $('#popup_login');
+        var action_login = $("li.authorization-link > a");
+        var miniCart_login = $("#top-cart-btn-checkout-not-leged");
+        var miniCartSpan_login = $("#top-cart-btn-checkout-not-leged > span");
+        if (action_login[0] !== e.target && miniCart_login[0] !== e.target && miniCartSpan_login[0] !== e.target) {
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
+                if (container.is(':visible')) {
+                    container.toggle();
+                    blackScreen();
+                }
+            }
+        }
+    });
+    $(".popup-login-overlay").on("click", function (e) {
+        var container = $('#popup_login');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            if (container.is(':visible')) {
+                container.toggle();
+                blackScreen();
+            }
+        }
+    });
+
+
+    $("body").on('click', "li.authorization-link > a", function (e) {
+        openPopUp();
+        if ($('#popup_block_register').is(':visible')) {
+            $('#popup_block_register').hide();
+            $('#popup_block_login').show();
+        }
+    });
+
+    $("body").on('click', "li.greet.welcome > .nott-logged-in", function (e) {
+        openPopUp();
+        e.stopPropagation();
+        if ($('#popup_block_login').is(':visible')) {
+            $('#popup_block_login').hide();
+            $('#popup_block_register').show();
+        }
+    });
+
+
+    $("body").on('click', "li.review-openlogin > a", function (e) {
+        e.preventDefault();
+        $("li.authorization-link > a").trigger("click");
+    });
+
+    $("body").on('click', "li.review-openregister > a", function (e) {
+        e.preventDefault();
+        $("li.greet.welcome > .nott-logged-in").trigger("click");
+    });
+
+    $('#popup_login').on('click', '#create_account_link', function (e) {
+        e.preventDefault();
+        $('#popup_block_register').toggle();
+        $('#popup_block_login').toggle();
+    });
+
+    $('#popup_login').on('click', '#login_account_link', function (e) {
+        e.preventDefault();
+        $('#popup_block_register').toggle();
+        $('#popup_block_login').toggle();
+    });
+
+    return Component.extend({
+        defaults: {
+            firstname: '',
+            lastname: '',
+            apellido_materno: '',
+            email: '',
+            password: '',
+            terms_conditions: false,
+            forgot_password: url.build('customer/account/forgotpassword'),
+            new_account: url.build('customer/account/create'),
+            template: 'WolfSellers_PopUpLogin/login.html',
+            tracks: {
+                firstname: true,
+                lastname: true,
+                apellido_materno: true,
+                email: true,
+                password: true,
+                terms_conditions: true,
+                enabled_rememberme: true,
+            }
+        },
+        initialize: function () {
+            this._super();
+        },
+        login: function (loginForm) {
+            $('body').trigger('processStart');
+            if ($(loginForm).validation() &&
+                $(loginForm).validation('isValid')
+            ) {
+                loginAction({
+                    'username': this.email,
+                    'password': this.password
+                },urlRedirect());
+            }
+            $('body').trigger('processStop');
+        },
+        register: function (loginForm) {
+            if ($(loginForm).validation() &&
+                $(loginForm).validation('isValid')
+            ) {
+                var userData = $(loginForm).serializeArray();
+                var formKey = $.mage.cookies.get('form_key');
+                userData.push({name: 'form_key', value: formKey})
+
+                $.ajax({
+                    url: url.build('popup/ajax/create'),
+                    method: 'POST',
+                    cache: false,
+                    dataType: 'json',
+                    data: userData,
+                    showLoader: true
+                }).done(function (data) {
+                    var customer = customerData.get('customer');
+                    if (!customer().firstname) {
+                        customerData.reload(['customer'], true);
+                    }
+                    window.location.href = url.build('customer/account');
+                }).fail(function (data) {
+                    var response = data.responseJSON
+                    if (!_.isUndefined(response.message)) {
+                        messageList.addErrorMessage({message: response.message});
+                    }
+                });
+            }
+        }
+    });
+
+    function urlRedirect()
+    {
+        if (typeof customerData.get('cart')().items != "undefined") {
+            var itemsCart = customerData.get('cart')().items.length;
+        }
+        var buynow = localStorage.getItem('is_buynow');
+        if (itemsCart > 0 && buynow)
+        {
+            localStorage.removeItem('is_buynow');
+            return url.build('checkout');
+        }
+        else
+        {
+            return url.build('customer/account');
+        }
+    }
+});

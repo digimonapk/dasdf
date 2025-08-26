@@ -1,0 +1,15 @@
+require([
+	'jquery',
+	'slick',
+	'domReady!'
+	], function($){
+		$(document).ready(function() {
+		    setTimeout(function() {
+		        $(".blog .message.notice").fadeOut(1500);
+		    },3000);
+		 
+		    setTimeout(function() {
+		        $(".page-products .message.notice").fadeOut(1500);
+		    },3000);
+		});
+	});
