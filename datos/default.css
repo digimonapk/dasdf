@@ -1,0 +1,1390 @@
+#keyboardInputMaster {
+  position:absolute;
+  /*border:0px groove #dddddd;*/ /*color del BORDE del teclado*/
+  /*border:20px;
+  border-left-color:Red;
+  border-top-color:Red;
+  border-right-color:Fuchsia;*/
+  color:#000000;            /*color de las letras de los botones CLEAR y CLOSE*/
+  background-color:#dddddd; /*color de fondo del teclado*/
+  text-align:left;
+  z-index:5000;
+  width:auto;
+}
+#keyboardInputMaster thead tr th {
+  text-align:left;
+  padding:2px 5px 2px 4px;
+  background-color:inherit;/*color de fondo del SELECT y el LABEL a la par del Select*/
+  border:0px none;
+}
+#keyboardInputMaster thead tr th select,
+#keyboardInputMaster thead tr th label {
+  color:#000000;
+  font:normal 11px Arial,sans-serif;
+}
+#keyboardInputMaster thead tr td {
+  text-align:right;
+  padding:2px 4px 2px 5px;
+  background-color:inherit;
+  border:0px none;
+}
+#keyboardInputMaster thead tr td span {
+  padding:1px 4px;
+  font:bold 11px Arial,sans-serif;
+  border:1px outset #aaaaaa; /*color de bordes de botones Clear y Close*/
+  background-color:#cccccc; /*color de fondo de botones Clear y Close*/
+  cursor:pointer;
+}
+#keyboardInputMaster thead tr td span.pressed {
+  border:1px inset #999999;
+  background-color:#bbbbbb; /*color de fondo de botones Clear y Close al presionarlos*/
+}
+#keyboardInputMaster tbody tr td {
+  text-align:left;
+  margin:0px;
+  padding:0px 4px 3px 4px;
+}
+#keyboardInputMaster tbody tr td div {
+  text-align:center;
+  position:relative;
+  height:0px;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout {
+  height:auto;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table {
+  height:20px;
+  white-space:nowrap;
+  width:100%;
+  border-collapse:separate;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table.keyboardInputCenter {
+  width:auto;
+  margin:0px auto;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td {
+  vertical-align:middle;
+  padding:0px 5px 0px 5px;
+  white-space:pre;
+  font:normal 11px 'Lucida Console',monospace;
+  border-top:1px solid #e5e5e5;   /*color del TOP BORDER de las TECLAS*/
+  border-right:1px solid #5d5d5d; /*color del RIGHT BORDER de las TECLAS*/
+  border-bottom:1px solid #5d5d5d;/*color del BOTTOM BORDER de las TECLAS*/
+  border-left:1px solid #e5e5e5;  /*color del LEFT BORDER de las TECLAS*/
+  background-color:#eeeeee;       /*color de FONDO de las TECLAS*/
+  cursor:default;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.last {
+  width:99%;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.alive {
+  background-color:#ccccdd;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.target {
+  background-color:#ddddcc;
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.hover {
+  border-top:1px solid #d5d5d5;    /*color del TOP BORDER de las TECLAS al pasar el MOUSE*/
+  border-right:1px solid #555555;  /*color del RIGHT BORDER de las TECLAS al pasar el MOUSE*/
+  border-bottom:1px solid #555555; /*color del BOTTOM BORDER de las TECLAS al pasar el MOUSE*/
+  border-left:1px solid #d5d5d5;   /*color del LEFT BORDER de las TECLAS al pasar el MOUSE*/
+  background-color:#cccccc;        /*color del FONDO de las TECLAS al pasar el MOUSE*/
+}
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.pressed,
+#keyboardInputMaster tbody tr td div#keyboardInputLayout table tbody tr td.dead {
+  border-top:1px solid #555555;    /*color del TOP BORDER de las TECLAS al presionar la TECLA*/
+  border-right:1px solid #d5d5d5;  /*color del RIGHT BORDER de las TECLAS al presionar la TECLA*/
+  border-bottom:1px solid #d5d5d5; /*color del BOTTOM BORDER de las TECLAS al presionar la TECLA*/
+  border-left:1px solid #555555;   /*color del LEFT BORDER de las TECLAS al presionar la TECLA*/
+  background-color:#cccccc;        /*color del FONDO de las TECLAS al presionar la TECLA*/
+}
+#keyboardInputMaster tbody tr td div var {
+  position:absolute;
+  bottom:0px;
+  right:0px;
+  font:bold italic 11px Arial,sans-serif;
+  color:#444444;
+}
+.keyboardInputInitiator {
+  margin-left:15px;
+  vertical-align:middle;
+  cursor:pointer;
+}
+/* GRID */
+/* ------------------------------------------------------- */
+.ic-grid
+{
+	background-color:white;
+}
+
+.ic-grid-title-row
+{
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.ic-netscape-grid-title-cell
+{
+	color: #FFFFFF;
+	font-weight: bold;
+	height: 15pt;
+	background-color:#0C2D83;
+	background-image:url(../images/table_corner_top_left.gif);
+	background-repeat:no-repeat;
+	padding: 2 2 2 10;
+}
+
+.ic-page-login-text-error
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FF0000;
+	text-decoration: none;
+}
+
+
+.ic-grid-title-cell
+{
+	height:15pt;
+	background-color:#0C2D83;
+	background-image:url(../images/table_corner_top_left.gif);
+	background-repeat:no-repeat;
+	padding: 2 2 2 10;
+}
+
+.ic-grid-title-cell-gray
+{
+	height:15pt;
+	background-color:#757D92;
+	background-image:url(../images/table_corner_top_left-02.gif);
+	background-repeat:no-repeat;
+	padding: 2 2 2 10;
+}
+
+.ic-grid-header-row
+{
+	/*background-color: #CDC8C8;*/
+	background-color: #E2E6F2;
+	
+}
+
+.ic-grid-header-cell
+{
+	padding: 2 5 2 5;
+}
+
+.ic-grid-item-row
+{
+	/*background-color: #F0F0F0;*/
+	background-color: #FFFFFF;
+}
+
+
+.ic-grid-alternateitem-row
+{
+	/*background-color: #FFFFFF;*/
+	background-color: #F0F0F0;
+}
+
+.ic-grid-item-row,
+.ic-grid-alternateitem-row
+{
+	height:30px;
+}
+
+.ic-grid-item-row-hover
+{
+	background-color: #DCE1F3 !important;
+}
+
+/*
+.ic-grid-item-row:hover,
+.ic-grid-alternateitem-row:hover
+{
+	background-color: #DCE1F3;
+}
+*/
+
+.ic-grid-item-cell,
+.ic-grid-alternateitem-cell
+{
+	padding: 2 5 2 5;
+	spacing: 2 5 2 5;
+}
+
+.ic-grid-footer-row
+{}
+
+.ic-grid-footer-cell
+{}
+
+.ic-grid-title-cell,
+.ic-grid-header-cell,
+.ic-grid-header-link,
+.ic-grid-item-cell,
+.ic-grid-alternateitem-cell,
+.ic-grid-footer-cell
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+a.ic-grid-header-link, .ic-grid-header-cell
+{
+	font-weight: bold;
+	color: #0C2D83;
+	text-decoration:none;
+}
+
+a.ic-grid-header-link:hover
+{
+	text-decoration:underline;
+	color: #017CC2;
+}
+
+a.ic-links-footergrid-back {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	background-image: url(../images/ic_icon_goback.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 12px;
+	text-decoration:none;
+
+
+
+}
+
+a.ic-links-footergrid-back:hover {
+	text-decoration:underline;
+	color: #017CC2;
+	
+}
+a.ic-links-footergrid-next {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	background-image: url(../images/ic_icon_gonext.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+	text-decoration:none;
+	padding-right: 12px;
+
+
+
+
+}
+
+a.ic-links-footergrid-next:hover {
+	text-decoration:underline;
+	color: #017CC2;
+	
+}
+.ic-footergrid-text {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #666666;
+}
+
+/* ------------------------------------------------------- */
+
+
+/* TITLES */
+/* ------------------------------------------------------- */
+.ic-title-1
+{
+	color:black;
+}
+
+.ic-title-2
+{
+	color:Blue;
+}
+
+.ic-title-3
+{
+	color:Green;
+}
+
+.ic-title-4
+{
+	color:Aqua;
+}
+
+.ic-title-5
+{
+	color:Fuchsia;
+}
+
+.ic-title-6
+{
+	color:Olive;
+}
+/* ------------------------------------------------------- */
+
+
+/* NAVIGATION BUTTONS */
+/* ------------------------------------------------------- */
+.ic-link-navigation
+{
+	padding: 10 10 5 10;
+}
+
+a.ic-link-navigation
+{
+	background-color: #0C2D83; /* #6384b5 */
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight:bold;
+	font-size: 8pt;
+	text-decoration:none;
+}
+
+a.ic-link-navigation:hover
+{
+	text-decoration:underline;
+}
+
+.ic-link-navigation2
+{
+	background-color: #0C2D83;
+	background-image: url(../images/ic_curve-button.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 80px;
+	padding-right: 10px;
+	padding-top: 2px;
+	display: block;
+	
+}
+
+a.ic-link-navigation2
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight:bold;
+	font-size: 10px;
+	text-decoration:none;
+	
+}
+
+.ic-link-navigation2-disabled
+{
+	background-color: #757d92;
+	background-image: url(../images/ic_curve-button-disabled.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 80px;
+	padding-right: 10px;
+	padding-top: 2px;
+	display: block;
+	
+}
+
+a.ic-link-navigation2-disabled
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight:bold;
+	font-size: 10px;
+	text-decoration:none;
+	
+}
+
+.ic-link-navigation3
+{
+	background-color: #0C2D83;
+	background-image: url(../images/ic_curve-button.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	width: 105px;
+	padding-right: 10px;
+	padding-top: 2px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	font-weight:bold;
+	font-size: 10px;
+	text-decoration:none;
+	
+	
+}
+
+a.ic-button-add {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	background-image: url(../images/ic_button-add.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	/*width:150px;*/
+	padding-left: 30px;
+	padding-top: 2px;
+	padding-right: 10px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #0C2D83;
+	text-decoration: none;
+	
+
+}
+
+a.ic-button-add:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #017CC2;
+	text-decoration: underline;
+	
+}
+
+a.ic-button-download {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	background-image: url(../images/ic_button-download.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	/*width:150px;*/
+	padding-left: 30px;
+	padding-top: 2px;
+	padding-right: 10px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #0C2D83;
+	text-decoration: none;
+	
+
+}
+
+a.ic-button-download:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #017CC2;
+	text-decoration: underline;
+	
+}
+
+a.ic-button-reuse {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	background-image: url(../images/ic_button-reuse.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	/*width:150px;*/
+	padding-left: 30px;
+	padding-top: 2px;
+	padding-right: 10px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #0C2D83;
+	text-decoration: none;
+	
+
+}
+
+a.ic-button-reuse:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #017CC2;
+	text-decoration: underline;
+	
+}
+
+.ic-button-markread {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	background-image: url(../images/ic_button-markread.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 16px;
+	padding-left: 34px;
+	padding-top: 2px;
+	padding-right: 10px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #0C2D83;
+	text-decoration: none;
+}
+
+a.ic-button-markread:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #017CC2;
+	text-decoration: underline;
+	
+}
+
+
+/* ------------------------------------------------------- */
+
+
+/* LINKS - INFO */
+/* ------------------------------------------------------- */
+.ic-panel-info
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	padding: 0px 0px 0px 0px;
+}
+
+A.ic-links-info {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #ffffff;
+	text-decoration: none;
+}
+A.ic-links-info:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #ffffff;
+	text-decoration: underline;
+}
+/* ------------------------------------------------------- */
+
+
+/* LINKS - SERVICES */
+/* ------------------------------------------------------- */
+A.ic-links-service {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+/*	font-weight:bold; */
+	color: #FFFFFF;
+	text-decoration: none;
+} 
+
+a.ic-links-service:hover
+{
+	text-decoration: underline;
+}
+/* ------------------------------------------------------- */
+
+
+/* LINKS - TOOLBAR */
+/* ------------------------------------------------------- */
+a.ic-links-toolbar, .ic-links-toolbar
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;
+	text-decoration:none;
+}
+a.ic-links-toolbar:hover
+{
+	color: #017CC2;
+	text-decoration:underline;
+}
+/* ------------------------------------------------------- */
+
+
+/* LINKS - MENU */
+/* ------------------------------------------------------- */
+a.ic-links-menu, a.ic-links-submenu
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	vertical-align:middle;
+	color:#FFFFFF;
+	text-decoration:none;	
+}
+
+a.ic-links-menu, a.ic-links-menu:hover
+{
+	font-weight:normal;	
+}
+
+a.ic-links-submenu, a.ic-links-submenu:hover
+{
+	font-weight:normal;
+	padding-left: 4px 
+	
+}
+
+a.ic-links-menu:hover, a.ic-links-submenu:hover
+{
+	text-decoration:underline;
+	
+}
+
+.ic-menu-title-text
+{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 8pt;
+	color:#666666;
+	font-weight:bold;
+	height: 20pt;
+}
+
+.ic-menu-title-text2
+{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	color:#E9E9E9;
+	background-color: #757D92;		
+	font-weight:bold;
+	height: 20px;
+}
+
+.ic-menu-text
+{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 9px;
+	vertical-align:middle;
+	color:#0C2D83;
+	padding-left: 4px
+}
+
+ic-menu-text2
+{
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 8px;
+	vertical-align:middle;
+	font-weight:bold;
+	color:#666666;	
+}
+
+/* ------------------------------------------------------- */
+
+
+/* LINKS - OPTIONS */
+/* ------------------------------------------------------- */
+A.ic-links-options {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+	vertical-align:middle;
+	color:#0C2D83;
+	text-decoration:none;
+}
+A.ic-links-options:hover {
+	TEXT-DECORATION: underline
+}
+/* ------------------------------------------------------- */
+
+
+.ic-select-favorites
+{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size:10px;
+	vertical-align:middle;
+	height: 15px;
+	width: 175px;
+}
+
+.ic-select-smartlinks
+{
+	font-family: Verdana,Arial,Helvetica,sans-serif;
+	font-size:10px;
+	vertical-align:middle;
+	height: 15px;
+	width: 120px;
+	margin: 4px;
+}
+
+.ic-separator
+{
+	margin-top: 0;
+	background-color: #5B71AB;
+	width: 100%;
+	height: 1px;
+}
+
+.ic-separator-table
+{
+	margin-top: 0;
+	background-color: #E7E7E7;
+	width: 100%;
+	height: 1px;
+}
+
+
+
+.ic-page-primarycolor
+{
+	background-color: #E9E9E9;	
+}
+
+.ic-page-primarycolor2
+{	
+	background-color: #0C2D83;	
+}
+
+.ic-page-cotizacion
+{
+	background-color: #E9E9E9;	
+}
+
+
+.ic-page-secondarycolor {
+		
+	 BACKGROUND-COLOR: #757D92
+}
+
+.ic-page-secondarycolor-myoptions {	
+	BACKGROUND-COLOR: #E2E6F2;
+}
+
+.ic-page-secondarycolorMenu {
+	BACKGROUND-COLOR: #0C2D83;
+}
+
+/* CONTROLS */
+/* ------------------------------------------------------- */
+body, span, td, 
+.ic-form-label, .ic-form-label-single, .ic-form-field, 
+.ic-control-label, .ic-control-select, .ic-control-radio, .ic-control-checkbox, .ic-control-text
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.ic-form-field-red 
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FF0000;
+	padding:5 10 5 5;
+	text-align: left;
+}
+
+.ic-control-integer
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-align: right;
+	border: 1px solid #666666;
+}
+
+.ic-control-hidden
+{
+	visibility:hidden;
+}
+
+.ic-form-table
+{
+	background-color:white;
+	border-collapse:separate;
+}
+
+.ic-form-row
+{
+	background-color:white;
+}
+
+.ic-form-label
+{
+	background-color:#F0F0F0;
+	font-weight:bold;	
+	padding:5 10 5 10;
+	color: #666666;
+	text-align: right;	
+}
+
+
+.ic-form-label2
+{
+	color: #FFFFFF;
+	font-weight:bold;
+	background-color: #999999;
+	font-weight:bold;
+	padding:5 10 5 10;
+}
+
+.ic-form-label-single
+{	
+	font-weight:bold;
+	padding:5 10 5 10;
+}
+
+.ic-form-field
+{
+	background-color:#FFFFFF;
+	padding:5 10 5 5;
+	text-align: left;
+}
+
+.ic-form-field-right
+{
+	background-color:#FFFFFF;
+	padding:5 10 5 5;
+	text-align: right;
+}
+
+.ic-form-label-error
+{
+	color:Red;
+	padding:5 10 5 5;
+}
+
+.ic-form-field-required
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	font-weight:bold;
+	color:red;
+}
+
+.ic-control-label
+{
+}
+
+.ic-control-select
+{
+	border: 1px solid #666666;
+}
+
+.ic-control-radio
+{
+	
+}
+
+.ic-control-checkbox
+{
+	
+}
+
+.ic-control-text
+{
+	border: 1px solid #666666;
+}
+
+/* ------------------------------------------------------- */
+
+/* PAGES */
+/* ------------------------------------------------------- */
+.ic-page-title
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #0C2D83;	
+	font-weight:bold;
+	padding: 2 2 2 0;
+	background-image:url(../images/ic-line-dashed.gif);	
+	background-repeat: repeat-x;
+	background-position: bottom;	
+}
+
+.ic-page-process
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #0C2D83;	
+	font-weight: normal;
+	padding: 2 0 2 2;
+	background-image:url(../images/ic-line-dashed.gif);	
+	background-repeat: repeat-x;
+	background-position: bottom;	
+}
+
+span#ProcessIndicatorPanel {
+    font-size: 14px;
+}
+
+.ic-page-summary
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+	background-color: #999999;
+	padding: 2 2 2 2;
+}
+.ic-page-summary-label
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+	font-weight:bold;
+	background-color: #999999;
+	padding: 2 2 2 2;
+    text-align: right;
+	
+}
+.ic-page-summary-field
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+	background-color: #999999;
+	padding: 2 2 2 2; 
+}
+/* ------------------------------------------------------- */
+
+
+/* BLANK PAGES - Specific*/
+/* ------------------------------------------------------- */
+.ic-page-blank
+{
+	background-color: #CAC7C0;/* 006283; #003399*/
+}
+/* ------------------------------------------------------- */
+
+
+/* HEADER PAGE - Specific*/
+/* ------------------------------------------------------- */
+.ic-last-login
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #FFFFFF;
+}
+    .ic-last-login span {
+        color: #FFFFFF;
+    }
+/* LOGIN PAGE - Specific*/
+/* ------------------------------------------------------- */
+.ic-page-login-link
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 10px;
+	font-weight: normal;
+	color: #0C2D83;
+	text-decoration: none;
+}
+
+a.ic-page-login-link
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 10px;
+	font-weight: normal;
+	color: #0C2D83;
+	text-decoration: none;
+}
+
+ic-page-login-link-text
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 10px;
+	font-weight: bold;
+	color: #0C2D83;
+	text-decoration: none;
+}
+
+a.ic-page-login-link:hover
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 10px;
+	font-weight: bold;
+	color: #017CC2;
+	text-decoration: underline;
+}
+.ic-page-login-text
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	color: #666666;
+	text-decoration: none;
+}
+
+.ic-page-login-text-title
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #0C2D83;
+	text-decoration: none;
+}
+
+
+.ic-page-login-label
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 10px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+.ic-page-login-title
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+}
+.ic-page-login-subtitle
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 13px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: none;
+}
+.ic-page-login-backgCenter
+{
+	background-image:url(../images/img_login_backg-center.gif);
+	background-repeat:no-repeat;
+	background-position: left top;
+	background-color: #ffffff;
+	
+}
+
+/* ------------------------------------------------------- */
+
+/* CHANGE PASSWORD PAGE - Specific*/
+/* ------------------------------------------------------- */
+.ic-change-password-description
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 7pt;
+}
+/* ------------------------------------------------------- */
+
+/* ELEMENT HIDE - Specific*/
+/* ------------------------------------------------------- */
+.ic-element-hide
+{
+	color:#000033; background-color:#cccccc; layer-background-color:#cccccc;
+    position:absolute; top:1px; left:1px; width:1px; height:1px;
+    z-index:99; display: none;
+}
+/* ------------------------------------------------------- */
+
+/* Text
+/* ------------------------------------------------------- */
+
+.ic-text-01 {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 15px;
+	color:#666666;
+	font-weight:normal;
+	height: 20pt;
+}
+.ic-text-gray{
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 9px;
+	font-weight:normal;
+	color:#666666;	
+	padding: 2 2 2 2;
+	
+}
+
+.ic-text-field
+{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	border: 1px solid #666666;
+	
+}
+
+.ic-text--background-gray
+{
+	background-color:#FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 10px;
+	font-weight:normal;
+	color:#666666;	
+	padding: 2 2 2 2;
+}
+
+
+.ic-text-gray-bold
+{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 8pt;
+	font-weight:bold;
+	color:#666666;		
+	padding: 2 2 2 2;	
+}
+
+.ic-text-field
+{
+	
+}
+
+.ic-separator-gray
+{
+	margin-top: 0;
+	background-color: #DFDFDF;
+	width: 100%;
+	height: 1px;
+}
+
+.ic-text-label-transactionalKey
+{	
+	font-family: Verdana, Arial, Helvetica, sans-serif;;
+	font-size: 8pt;
+	font-weight:bold;
+	color:#666666;	
+	padding:5 10 5 10;
+}
+
+.ic-form-label-confirmation
+{
+	color: #666666;
+	font-weight:bold;
+	background-color: #757D92;
+	font-weight:bold;
+	padding:5 10 5 10;
+}
+	
+/* ------------------------------------------------------- */
+
+/* FOOT/
+/* ------------------------------------------------------- */
+
+.ic-line-dashed {
+	background-image: url(../images/ic-line-dashed.gif);
+	background-repeat: repeat-x;
+	background-position: center;
+
+}
+
+
+/* ------------------------------------------------------- */
+
+
+/* MENU/
+/* ------------------------------------------------------- */
+
+.ic-backg-menu {
+	background-image: url(../images/ic_backg-isoBCT.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+
+}
+
+
+/* ------------------------------------------------------- */
+/* CALENDAR/
+/* ------------------------------------------------------- */
+
+.ic-calendar-title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	height:20px;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-align: center;
+	background-color: #0C2D83;
+
+
+}
+.ic-calendar-title-left {
+
+	background-image: url(../images/table_corner_top_left.gif);
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 10px;
+}
+.ic-calendar-title-right {
+
+
+	background-image: url(../images/img-grid-title-cell-right.gif);
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 10px;
+}
+
+.ic-calendar-border-table {
+
+	border: 1px solid #C3C3C5;
+	background-image: url(../images/img_login_backg-center.gif);
+	background-repeat: no-repeat;
+}
+
+.ic-calendar-text-field {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	border: 1px solid #000000;
+	color: #000000;
+
+
+
+}
+.ic-calendar-title-days {
+	background-color: #757D92;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-align: center;
+
+
+}
+.ic-calendar-line {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCCCCC;
+}
+.ic-calendar-button-navigation {
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #0C2D83;
+	background-image: url(../images/ic_calendar-button-01.gif);
+	background-repeat: no-repeat;
+	border: 0px;
+	height: 21px;
+	width: 21px;
+}
+.ic-calendar-button-navigation2 {
+
+
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #5B72A9;
+	background-image: url(../images/ic_calendar-button-02.gif);
+	background-repeat: no-repeat;
+	border: 0px;
+	height: 21px;
+	width: 44px;
+}
+
+
+.ic-calendar-button-numbers {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #0C2D83;
+	background-image: url(../images/ic_calendar-button-01.gif);
+	background-repeat: no-repeat;
+	border: 0px;
+	height: 21px;
+	width: 21px;
+}
+
+
+/* ------------------------------------------------------- */
+
+.tabla-monto-debitar
+{
+	border-collapse:collapse;
+	border-spacing:0;
+	border:0;
+	width:100%;
+}
+
+.tabla-monto-debitar td
+{
+	padding:0;
+}
+
+.tabla-monto-debitar td.ic-form-label.label-resumen 
+{
+	width: 190px !important;
+}
+
+html:not([data-useragent*='MSIE']) table.tabla-monto-debitar td.ic-form-label.label-resumen 
+{
+	width: 200px !important;
+}
+
+td.ic-form-field.field-resumen
+{
+	
+	padding:5px 5px 5px 10px;
+}
+
+td.ic-form-field.field-resumen span
+{
+	font-size:12px !important;
+}
+
+.label-resumen
+{
+    margin-right: 5px;
+    padding: 5px !important;
+    width: 200px !important;
+    text-align: right;
+    display: inline-block;
+    border-bottom: 1px solid #E7E7E7;
+}
+
+td.label-resumen
+{
+    width: 200px !important;
+}
+
+.field-resumen,
+.field-resumen > span
+{
+	font-size:12px !important;
+	padding:5px 0px 5px 5px;
+}
+
+.loader-full-screen {
+    position: fixed;
+    _position:absolute;
+    width:100%;
+    max-width:100%;
+    height:100vh;
+    min-height: 100vh;
+    max-height: 100%;
+    
+    background-color:rgba(100,100,100,0.2) !important;
+    
+    /*Todo esto para que IE funcione*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1, StartColorStr='#33646464', EndColorStr='#33646464')"; /* For IE8 */
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#33646464', EndColorStr='#33646464'); /* For IE6,IE7 */
+    zoom: 1!important; 
+    bottom:0;
+    _top:expression(document.body.scrollTop+document.body.clientHeight-this.clientHeight);
+    /*Todo esto para que IE funcione*/
+
+    background:url("../../images/loader.svg") no-repeat center center fixed;
+    background-size: 80px;
+    top:0;
+    left:0;
+    z-index:5001
+}
+
+
+/*FIRMA DIGITAL*/
+
+.mdlFD {
+    display: none;
+    position: fixed;
+    _position: absolute;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100%;
+     padding-top: 10%; 
+    background-color: rgba(100,100,100,0.2) !important;
+    /*Todo esto para que IE funcione*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1, StartColorStr='#33646464', EndColorStr='#33646464')"; /* For IE8 */
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1, StartColorStr='#33646464', EndColorStr='#33646464'); /* For IE6,IE7 */
+    zoom: 1 !important;
+    bottom: 0;
+    /*_top: expression(document.body.scrollTop+document.body.clientHeight-this.clientHeight);*/
+    /*Todo esto para que IE funcione*/
+    /*background: url("../../images/loader.svg") no-repeat center center fixed;*/
+    /*background-size: 80px;*/
+    top: 0;
+    left: 0;
+    z-index: 5001;
+}
+
+.mdlFD-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 2px solid #0C2D83;
+    width: 45%;
+    border-radius: 7px;
+}
+
+.btnCopyCode{
+    background-color: #0C2D83;
+    color: white;
+    border-radius: 5px;
+    border-color: #6c82b9;
+}
+.btnCopyCode:hover{
+    background-color: #214dbd;
+    border-color: #e6e6e6;
+}
+
+
